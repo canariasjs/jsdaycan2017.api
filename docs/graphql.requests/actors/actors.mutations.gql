@@ -1,0 +1,75 @@
+# ############     ACTORS     ############
+
+mutation {
+  addActor (
+    name: "Testing Actor"
+    picture:"testing_actor_picture.jpg"
+    born:"1969-01-01"
+    height:1.90
+    country:"USA"
+  ) {
+    id
+    name
+    picture
+    born
+    height
+    country
+  }
+}
+
+mutation {
+  addActor (
+    name: "Testing Actor"
+    picture:"testing_actor_picture.jpg"
+    born:"1969-01-01"
+    height:1.90
+    country:"USA"
+    movies: [1,2,3]
+  ) {
+    id
+    name
+    movies {
+      id
+      title
+    }
+  }
+}
+
+mutation {
+  addMoviesToActor(id: 29, movies: [2, 3, 4]) {
+    id
+    name
+    movies {
+      id
+      title
+    }
+  }
+}
+
+mutation {
+  deleteActorMovies(id: 29, movies: [3, 4]) {
+    id
+    name
+    movies {
+      id
+      title
+    }
+  }
+}
+
+mutation {
+  updateActor(id: 29, name: "Pepito") {
+    id
+    name
+  }
+}
+
+# Benedict Cumberbatch
+
+mutation {
+  deleteActor(id: 29) {
+    id
+    name
+    picture
+  }
+}

@@ -1,0 +1,29 @@
+query {
+  allGenres {
+    id
+    name
+  }
+}
+
+query {
+  genresById(id: [1, 7]) {
+    name
+  }
+}
+
+query {
+  genresById(id: [7]) {
+    name
+    movies {
+      title
+      poster_image
+      duration
+      rating
+      classification
+      year
+      genres {
+        name
+      }
+    }
+  }
+}

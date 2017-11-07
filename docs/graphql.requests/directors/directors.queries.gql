@@ -1,0 +1,36 @@
+query {
+  allDirectors {
+    id
+    name
+    picture
+  }
+}
+
+query {
+  directorsById(id: [3, 4]) {
+    id
+    name
+    picture
+  }
+}
+
+query {
+  directorsById(id: [1]) {
+    name
+    movies {
+      title
+      description
+      poster_image
+      duration
+      rating
+      classification
+      year
+      writers {
+        name
+      }
+      actors {
+        name
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+mutation {
+  addDirector(
+    name: "Testing Director"
+    picture:"testing_director_picture.jpg"
+  ) {
+    id
+    name
+    picture
+  }
+}
+
+mutation {
+  addDirector(
+    name: "Testing Director"
+    picture:"testing_director_picture.jpg"
+    movies: [1,2,3]) {
+    id
+    name
+    picture
+    movies {
+      id
+      title
+    }
+  }
+}
+
+mutation {
+  addMoviesToDirector(id: 7, movies: [2, 3, 4]) {
+    id
+    name
+    movies {
+      id
+      title
+    }
+  }
+}
+
+mutation {
+  deleteDirectorMovies(id: 7, movies: [2, 3, 4]) {
+    id
+    name
+    movies {
+      id
+      title
+    }
+  }
+}
+
+mutation {
+  updateDirector(id: 7, name: "Pepito") {
+    id
+    name
+    movies {
+      id
+      title
+    }
+  }
+}
+
+mutation {
+  deleteDirector(id: 7) {
+    id
+    name
+  }
+}
