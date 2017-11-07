@@ -8,7 +8,7 @@ import * as GenresService from '../services/genres.service';
 
 import * as utils from '../shared/utils';
 
-var allQuery = {
+const allQuery = {
     type: new GraphQLList(GenreType),
     description: 'List of all stored genres.',
     resolve: async (parentValues, args) => {
@@ -16,7 +16,7 @@ var allQuery = {
     }
 };
 
-var byIdQuery = {
+const byIdQuery = {
     type: new GraphQLList(GenreType),
     description: 'List of all stored genres, filtered by their IDs.',
     args: {

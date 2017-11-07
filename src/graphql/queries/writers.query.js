@@ -8,7 +8,7 @@ import * as WritersService from '../services/writers.service';
 
 import * as utils from '../shared/utils';
 
-var allQuery = {
+const allQuery = {
     type: new GraphQLList(WriterType),
     description: 'List of all stored writers.',
     resolve: async (parentValues, args) => {
@@ -16,7 +16,7 @@ var allQuery = {
     }
 };
 
-var byIdQuery = {
+const byIdQuery = {
     type: new GraphQLList(WriterType),
     description: 'List of all stored writers, filtered by their IDs.',
     args: {

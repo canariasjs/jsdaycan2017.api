@@ -8,7 +8,7 @@ import * as ActorsService from '../services/actors.service';
 
 import * as utils from '../shared/utils';
 
-var allQuery = {
+const allQuery = {
     type: new GraphQLList(ActorType),
     description: 'List of all stored actors.',
     resolve: async (parentValues, args) => {
@@ -16,7 +16,7 @@ var allQuery = {
     }
 };
 
-var byIdQuery = {
+const byIdQuery = {
     type: new GraphQLList(ActorType),
     description: 'List of all stored actors and actresses, filtered by their IDs.',
     args: {

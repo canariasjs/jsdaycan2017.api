@@ -5,13 +5,13 @@ import {
     GraphQLNonNull
 } from 'graphql';
 
-import DirectorType from '../models/director.type';
+import WriterType from '../models/writer.type';
 
-import * as DirectorsService from '../services/directors.service';
-import * as MoviesDirectorsService from '../services/movies-directors.service';
+import * as WritersService from '../services/writers.service';
+import * as MoviesWritersService from '../services/movies-writers.service';
 
-const addDirector = {
-    type: DirectorType,
+const addWriter = {
+    type: WriterType,
     args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
         picture: { type: GraphQLString },
@@ -19,21 +19,21 @@ const addDirector = {
     },
     resolve: async (parentValues, args) => {
         try {
-            let persistedDirectorData = await DirectorsService.persistNewDirector(args);
+            let persistedWriterData = await WritersService.persistNewWriter(args);
 
             if (args.movies) {
-                await MoviesDirectorsService.addMoviesToDirector(persistedDirectorData.id, args.movies);
+                await MoviesWritersService.addMoviesToWriter(persistedWriterData.id, args.movies);
             }
             
-            return persistedDirectorData;
+            return persistedWriterData;
         } catch (error) {
             return error;
         }
     }
 };
 
-const updateDirector = {
-    type: DirectorType,
+const updateWriter = {
+    type: WriterType,
     args: {
         id: { type: new GraphQLNonNull(GraphQLInt) },
         name: { type: new GraphQLNonNull(GraphQLString) },
@@ -41,39 +41,39 @@ const updateDirector = {
     },
     resolve: async (parentValues, args) => {
         try {
-            return await DirectorsService.updateDirector(args);
+            return await WritersService.updateWriter(args);
         } catch (error) {
             return error;
         }
     }
 };
 
-const deleteDirector = {
-    type: DirectorType,
+const deleteWriter = {
+    type: WriterType,
     args: {
         id: { type: new GraphQLNonNull(GraphQLInt) }
     },
     resolve: async (parentValues, args) => {
         try {
-            return await DirectorsService.deleteDirector(args.id);
+            return await WritersService.deleteWriter(args.id);
         } catch (error) {
             return error;
         }
     }
 };
 
-const addMoviesToDirector = {
-    type: DirectorType,
+const addMoviesToWriter = {
+    type: WriterType,
     args: {
         id: { type: new GraphQLNonNull(GraphQLInt) },
         movies: { type:new GraphQLNonNull(new GraphQLList(GraphQLInt)) }
     },
     resolve: async (parentValues, args) => {
         try {
-            let persistedDirectorMoviesData = await MoviesDirectorsService.addMoviesToDirector(args.id, args.movies);
+            let persistedWriterMoviesData = MoviesWritersService.addMoviesToWriter(args.id, args.movies);
 
-            if (persistedDirectorMoviesData) {
-                return await DirectorsService.getDirectorsData(args.id);
+            if (persistedWriterMoviesData) {
+                return await WritersService.getWritersData(args.id);
             } else {
                 return [];
             }
@@ -83,16 +83,16 @@ const addMoviesToDirector = {
     }
 };
 
-const deleteDirectorMovies = {
-    type: DirectorType,
+const deleteWriterMovies = {
+    type: WriterType,
     args: {
         id: { type: new GraphQLNonNull(GraphQLInt) },
         movies: { type:new GraphQLNonNull(new GraphQLList(GraphQLInt)) }
     },
     resolve: async (parentValues, args) => {
         try {
-            await MoviesDirectorsService.deleteDirectorMovies(args.id, args.movies);
-            return await DirectorsService.getDirectorsData(args.id);
+            await MoviesWritersService.deleteWriterMovies(args.id, args.movies);
+            return await WritersService.getWritersData(args.id);
         } catch (error) {
             return error;
         }
@@ -100,9 +100,9 @@ const deleteDirectorMovies = {
 };
 
 export {
-    addDirector,
-    updateDirector,
-    deleteDirector,
-    addMoviesToDirector,
-    deleteDirectorMovies
+    addWriter,
+    updateWriter,
+    deleteWriter,
+    addMoviesToWriter,
+    deleteWriterMovies
 };

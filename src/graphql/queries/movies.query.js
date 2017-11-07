@@ -8,7 +8,7 @@ import * as MoviesService from '../services/movies.service';
 
 import * as utils from '../shared/utils';
 
-var allQuery = {
+const allQuery = {
     type: new GraphQLList(MovieType),
     description: 'List of all stored movies.',
     resolve: async (parentValues, args) => {
@@ -16,7 +16,7 @@ var allQuery = {
     }
 };
 
-var byIdQuery = {
+const byIdQuery = {
     type: new GraphQLList(MovieType),
     description: 'List of all stored movies, filtered by their IDs.',
     args: {

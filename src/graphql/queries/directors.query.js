@@ -8,7 +8,7 @@ import * as DirectorsService from '../services/directors.service';
 
 import * as utils from '../shared/utils';
 
-var allQuery = {
+const allQuery = {
     type: new GraphQLList(DirectorType),
     description: 'List of all stored directors.',
     resolve: async (parentValues, args) => {
@@ -16,7 +16,7 @@ var allQuery = {
     }
 };
 
-var byIdQuery = {
+const byIdQuery = {
     type: new GraphQLList(DirectorType),
     description: 'List of all stored directors, filtered by their IDs.',
     args: {

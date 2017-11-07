@@ -6,7 +6,7 @@ import * as ActorsQuery from './actors.query';
 import * as GenresQuery from './genres.query';
 import * as MoviesQuery from './movies.query';
 
-var RootQueryType = new GraphQLObjectType({
+const RootQueryType = new GraphQLObjectType({
     name: 'RootQuery',
     fields: () => ({
         allDirectors: DirectorsQuery.allQuery,
