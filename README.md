@@ -35,8 +35,8 @@ Una vez expuesto lo que vamos a hacer en el taller, es hora de configurar el ent
 Lo primero es descargar el servidor que contiene los datos de las películas que vamos a consumir desde GraphQL. Para ello, debes seguir estos pasos:
 
 ```sh
-$ git clone https://github.com/ddialar/js.json-server.movies.git movies-server
-$ cd movies-server
+$ git clone https://github.com/canariasjs/jsdaycan2017.dbserver.git dbserver
+$ cd dbserver
 $ npm install
 $ npm run json_server
 ```
@@ -50,9 +50,10 @@ Este será el servidor cuyas funcionalidades iremos implementando durante el tal
 Para configurar el entorno, primero debes estar fuera del directorio donde tienes el servidor de películas y a continuación, debes seguir estos pasos:
 
 ```sh
-$ git clone https://github.com/ddialar/graphql.server.workshop.git graphql-server
-$ cd graphql-server
+$ git clone https://github.com/canariasjs/jsdaycan2017.api.git api
+$ cd api
 $ npm install
+$ npm run dev
 ```
 
 Si todo ha ido bien, ya tendrás listo en entorno necesario para poder trabajar durante el taller.
