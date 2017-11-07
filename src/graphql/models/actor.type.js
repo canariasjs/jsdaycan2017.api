@@ -1,10 +1,12 @@
-import axios from 'axios';
 import {
     GraphQLObjectType,
     GraphQLInt,
     GraphQLFloat,
-    GraphQLString
+    GraphQLString,
+    GraphQLList
 } from 'graphql';
+
+import * as MoviesActorsService from '../services/movies-actors.service';
 
 var ActorType = new GraphQLObjectType({
     name: 'Actor',
@@ -14,8 +16,16 @@ var ActorType = new GraphQLObjectType({
         picture: { type: GraphQLString },
         born: { type: GraphQLString },
         height: { type: GraphQLFloat },
-        country: { type: GraphQLString }
+        country: { type: GraphQLString },
+        movies: {
+            type: new GraphQLList(MovieType),
+            resolve: async (parentValues, args) => {
+                return await MoviesActorsService.getMoviesDataByActorId(parentValues.id);
+            }
+        }
     })
 });
 
 export default ActorType;
+
+import MovieType from './movie.type';
