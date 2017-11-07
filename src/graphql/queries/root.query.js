@@ -1,6 +1,7 @@
 import { GraphQLObjectType } from 'graphql';
 
 import * as DirectorsQuery from './directors.query';
+import * as GenresQuery from './genres.query';
 
 var RootQueryType = new GraphQLObjectType({
     name: 'RootQuery',
@@ -14,8 +15,8 @@ var RootQueryType = new GraphQLObjectType({
         // allActors: ActorsQuery.allQuery,
         // actorsById: ActorsQuery.byIdQuery,
 
-        // allGenres: GenresQuery.allQuery,
-        // genresById: GenresQuery.byIdQuery,
+        allGenres: GenresQuery.allQuery,
+        genresById: GenresQuery.byIdQuery,
 
         // allMovies: MoviesQuery.allQuery,
         // moviesById: MoviesQuery.byIdQuery,
