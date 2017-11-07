@@ -1,0 +1,42 @@
+{
+  "name": "graphql.server.workshop.private",
+  "version": "1.0.0",
+  "description": "GraphQL basic server based on ExpressJS.",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest --watch --verbose",
+    "test_eslint": "eslint src",
+    "build": "babel src -d dist",
+    "dev": "nodemon --watch src --exec babel-node src/server.js",
+    "start": "babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddialar/graphql.server.workshop.git"
+  },
+  "keywords": [
+    "GraphQL",
+    "NodeJS",
+    "ExpressJS",
+    "Jest",
+    "Workshop"
+  ],
+  "author": "Dailos Rafael Díaz Lara <ddialar@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ddialar/graphql.server.workshop#readme",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.7",
+    "log4js": "^2.3.11"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.10.0",
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1"
+  }
+}
