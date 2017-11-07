@@ -7,7 +7,7 @@ import {
 
 import * as MoviesGenresService from '../services/movies-genres.service';
 
-var GenreType = new GraphQLObjectType({
+const GenreType = new GraphQLObjectType({
     name: 'Genre',
     fields: () => ({
         id: { type: GraphQLInt },

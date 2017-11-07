@@ -7,7 +7,7 @@ import {
 
 import * as MoviesDirectorsService from '../services/movies-directors.service';
 
-var DirectorType = new GraphQLObjectType({
+const DirectorType = new GraphQLObjectType({
     name: 'Director',
     fields: () => ({
         id: { type: GraphQLInt },

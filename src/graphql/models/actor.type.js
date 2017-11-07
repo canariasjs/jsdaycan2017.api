@@ -8,7 +8,7 @@ import {
 
 import * as MoviesActorsService from '../services/movies-actors.service';
 
-var ActorType = new GraphQLObjectType({
+const ActorType = new GraphQLObjectType({
     name: 'Actor',
     fields: () => ({
         id: { type: GraphQLInt },

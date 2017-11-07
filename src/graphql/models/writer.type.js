@@ -7,7 +7,7 @@ import {
 
 import * as MoviesWritersService from '../services/movies-writers.service';
 
-var WriterType = new GraphQLObjectType({
+const WriterType = new GraphQLObjectType({
     name: 'Writer',
     fields: () => ({
         id: { type: GraphQLInt },
